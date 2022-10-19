@@ -14,6 +14,16 @@ public class Bike extends Object {
 	public double getSpeed() {
 		return speed;
 	}
+	
+	/* 基本型別傳的是值，物件型別傳的是址(記憶體位置) */
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+//		return super.toString();
+		return "Bike：" + speed;
+	}
+	
 }
 
 ////設計類別時，新增class，不要勾選main方法(程式進入點)
