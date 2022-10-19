@@ -40,21 +40,46 @@ public class TWId {
 	public TWId(boolean isMale, int area) { // 型別：boolean、int，個數 2 個 // 步驟五
 		StringBuffer sb = new StringBuffer();
 		sb.append(letters.substring(area, area+1))
-			.append(isMale?"1":"2")
-			.append((int)(Math.random()*10))
-			.append((int)(Math.random()*10))
-			.append((int)(Math.random()*10))
-			.append((int)(Math.random()*10))
-			.append((int)(Math.random()*10))
-			.append((int)(Math.random()*10))
-			.append((int)(Math.random()*10));
+			.append(isMale?"1":"2")				// 第二碼
+			.append((int)(Math.random()*10))		// 第三碼
+			.append((int)(Math.random()*10))		// 第四碼
+			.append((int)(Math.random()*10))		// 第五碼
+			.append((int)(Math.random()*10))		// 第六碼
+			.append((int)(Math.random()*10))		// 第七碼
+			.append((int)(Math.random()*10))		// 第八碼
+			.append((int)(Math.random()*10));	// 第九碼
+		String temp = sb.toString();
+		for (int i=0; i<10; i++) {
+			if (isValidTWId(temp + i)) {
+				id = temp + i;
+			}
+		}
 
 	}
 	
+	public String getId() { // String 是固定不變的
+		return id;
+	}
 	
-//	public TWId(String id) {
-//		this.id = id;
-//	}
+	// 練習題
+	public boolean isMale() {
+		
+		
+		
+		return true;
+	}
+	
+	private TWId(String id) {
+		this.id = id;
+	}
+	
+	public static TWId createTWId(String id) {
+		TWId temp = null;
+		if (isValidTWId(id)) {
+			temp = new TWId(id);
+		}
+		return temp;
+	}
 	
 
 	
