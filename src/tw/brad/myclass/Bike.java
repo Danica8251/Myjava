@@ -21,7 +21,7 @@ public class Bike extends Object {
 	public String toString() {
 		// TODO Auto-generated method stub
 //		return super.toString();
-		return "Bike：" + speed;
+		return "Bike：" + speed;   
 	}
 	
 }
