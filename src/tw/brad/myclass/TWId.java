@@ -2,6 +2,8 @@ package tw.brad.myclass;
 
 public class TWId {
 	
+	// 第一道敘述句：不寫super的話就是無傳參數建構式，或者是呼叫本類別其他的(this) <要釐清>
+	
 /*
  * 身分證重點：
  * 1.長度為10(共10碼) 
