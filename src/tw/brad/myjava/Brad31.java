@@ -1,6 +1,6 @@
 package tw.brad.myjava;
 
-import tw.brad.myclass.TWId;
+import tw.brad.myclass.TWId; // 對應TWId.java檔
 
 public class Brad31 {
 
