@@ -11,7 +11,54 @@ public class TWId {
  * 5.驗證 可被10整除
  */
 
-// 搭配 Brad31
+	private String id;
+	private static String letters = "ABCDEFGHJKLMNPQRSTUVXYZIO"; // static可以去呼叫 static的東西 // 步驟四
+
+	
+	// 建構式 身分證初始化
+	// 直接傳遞參數給他
+	// 一旦 new，物件已經做出來無法改變
+	
+	/* 身份證字號產生器，做出物件實體 */
+	// 無傳參數，隨機產生身分證字號
+	public TWId() { // 沒有型別，也沒有個數 // 步驟一
+		this((int)(Math.random()*2) == 0);
+	}
+	
+	/* 指定男或女 */
+	public TWId(boolean isMale) { // 型別：boolean，個數 1 個 // 步驟二
+		this(isMale,(int)(Math.random()*26));
+	}
+	
+	/* 指定地區 */
+	public TWId(int area) { // 型別：int，個數 1 個 // 步驟三
+		this((int)(Math.random()*2) == 0, area);
+		
+	}
+	
+	/* 指定性別跟地區 */
+	public TWId(boolean isMale, int area) { // 型別：boolean、int，個數 2 個 // 步驟五
+		StringBuffer sb = new StringBuffer();
+		sb.append(letters.substring(area, area+1))
+			.append(isMale?"1":"2")
+			.append((int)(Math.random()*10))
+			.append((int)(Math.random()*10))
+			.append((int)(Math.random()*10))
+			.append((int)(Math.random()*10))
+			.append((int)(Math.random()*10))
+			.append((int)(Math.random()*10))
+			.append((int)(Math.random()*10));
+
+	}
+	
+	
+//	public TWId(String id) {
+//		this.id = id;
+//	}
+	
+
+	
+	// 搭配 Brad31
 	
 	public static boolean isValidTWId(String id){ // 專門用來傳回布林值，是否為有效TWId // 呼叫這個方法傳遞字串
 		boolean ret = false;
@@ -19,7 +66,8 @@ public class TWId {
 		if (id.matches("[A-Za-z][1289][0-9]{8}")) {
 					// [A-Za-z]：第一碼;[1289]：第2碼;[0-9]{8}：第3碼要出現8次
 			
-			String letters = "ABCDEFGHJKLMNPQRSTUVXYZIO";
+			letters = "ABCDEFGHJKLMNPQRSTUVXYZIO";
+//			String letters = "ABCDEFGHJKLMNPQRSTUVXYZIO"; // 移到第15列
 			char c1 = id.charAt(0);
 			int pos = letters.indexOf(c1); // 0 ~ 25
 			int n12 = pos + 10; // 10 ~ 35
