@@ -1,6 +1,6 @@
 package tw.brad.myjavatest;
 
-public class Brad13 {
+public class Brad13Test {
 	
 	/*
 	閏年規則

@@ -2,12 +2,13 @@ package tw.brad.myjavatest;
 
 public class Brad02Test {
 	public static void main(String[] args) {
-			byte var1 = 123;
-			byte Var1 = -123;
-			byte ___;
-			byte _$_;
-			___ = -1;
-			_$_ = 27;
+			
+			byte var1 = 123;	// 宣告名稱為var1的變數，型態為byte，變數值為123
+			byte Var1 = -123;	// 宣告名稱為Var1的變數，型態為byte，變數值為-123
+			byte ___;			// 宣告名稱為___的變數，型態為byte
+			byte _$_;			// 宣告名稱為_$_的變數，型態為byte
+			___ = -1;			// 宣告___變數的值為-1
+			_$_ = 27;			// 宣告_$_變數的值為27
 			System.out.println(var1);
 			System.out.println(Var1);
 			System.out.println(___);

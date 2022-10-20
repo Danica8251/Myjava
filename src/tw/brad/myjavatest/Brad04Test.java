@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Brad04Test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		// 宣告 scanner 這個物件，並用 System.in 輸入
 		Scanner scanner = new Scanner(System.in);

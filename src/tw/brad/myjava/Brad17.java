@@ -1,7 +1,5 @@
 package tw.brad.myjava;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 public class Brad17 {
 
 	public static void main(String[] args) {

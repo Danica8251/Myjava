@@ -1,6 +1,6 @@
 package tw.brad.myjavatest;
 
-public class Brad14 {
+public class Brad14Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -3,16 +3,16 @@ package tw.brad.myjavatest;
 public class Brad03Test {
 
 	public static void main(String[] args) {
-		byte a = 10, b = 3;
+		byte a = 10, b = 3; // 宣告名稱分別為a、b的變數，型態為byte，值分別為10,3
 		System.out.println(a);
 		System.out.println(b);
 		
-		int c;
-		c = a + b;
+		int c; // 宣告名稱為c的變數，型態為int
+		c = a + b; // 宣告c變數的值為a+b
 		System.out.println(c);
 		
-		int d;
-		d = a - b;
+		int d; // 宣告名稱為d的變數，型別為int
+		d = a - b; //宣告d變數的值為a-b
 		System.out.println(d);
 	}
 }
