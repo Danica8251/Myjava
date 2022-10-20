@@ -3,7 +3,7 @@ package tw.brad.myjava;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Brad_PokerV4 {
+public class PokerV4 {
 		
 		public static void main(String[] args) {
 			ArrayList<Integer> list = new ArrayList<>();

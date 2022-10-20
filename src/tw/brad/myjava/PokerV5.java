@@ -1,6 +1,6 @@
 package tw.brad.myjava;
 
-public class Brad_PokerV5 {
+public class PokerV5 {
 
 	public static void main(String[] args) {
 		int nums =10;

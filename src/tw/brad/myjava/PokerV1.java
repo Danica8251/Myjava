@@ -1,6 +1,6 @@
 package tw.brad.myjava;
 
-public class Brad_PokerV1 {
+public class PokerV1 {
 
 	public static void main(String[] args) {
 		int[] poker = new int[52];	// 0 ~ 51 => 0		

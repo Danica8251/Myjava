@@ -1,6 +1,6 @@
 package tw.brad.myjava;
 
-public class Brad_PokerV3 {
+public class PokerV3 {
 	
 	/* 1 ~ 100 的質數有哪些 */
 
