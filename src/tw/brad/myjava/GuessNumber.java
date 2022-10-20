@@ -39,6 +39,19 @@ public class GuessNumber extends JFrame implements ActionListener{  // 此行叫
 		// Listener 傾聽者
 		guess.addActionListener(this); // this 本人 ，因為只有一個按鈕，故只有寫一個listener
 		
+		guess.addActionListener(new MyListener()); // 既然寫類別，可以產生多個物件實體
+		
+		// 第三種寫法，此案例建議這樣寫較佳
+		guess.addActionListener(new ActionListener() { // 沒有定義類別，只有這邊可以用，當場實作
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("Listener2"); // 按下按鈕做什麼事
+			}
+		});
+		
+		// set永遠只有一個，新覆蓋舊；add會一直加
+		
 		setSize(640, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -92,9 +105,12 @@ public class GuessNumber extends JFrame implements ActionListener{  // 此行叫
 //		System.out.println(answer);
 	}
 
+	// 第一種寫法
 	@Override
 	public void actionPerformed(ActionEvent e) { // 有{ }就是有實作 // 按下去要做的事情
 		// TODO Auto-generated method stub
+		
+		System.out.println("Listener0");
 		
 //		// 驗證 code
 //		System.out.println("OK");  //按下按鈕有被listener聽到了，就會輸出OK
@@ -151,7 +167,17 @@ public class GuessNumber extends JFrame implements ActionListener{  // 此行叫
 		return String.format("%dA%dB",a, b );
 	}
 	
-	
-		
+}
 
+// 第二種寫法，在此案例中不建議寫這樣
+class MyListener implements ActionListener{ // 規劃那個時間到的時候要做的實作
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Listener1");
+		
+	}
+	
 }
