@@ -2,6 +2,8 @@
 
 package tw.brad.myjava;
 
+import tw.brad.myclass.Bike;
+
 public class Brad35 {
 
 	public static void main(String[] args) {
@@ -23,7 +25,16 @@ public class Brad35 {
 				
 			}
 		});
-		}
+		
+		Bike b1 = new Bike() { // 當場實作一個客製化的 ex.腳踏車，當場override
+			@Override
+			public void upSpeed() {
+				// TODO Auto-generated method stub
+				super.upSpeed();
+			}
+		};
+		
+	}
 	static void m1(Brad351 obj) {
 		
 	}
