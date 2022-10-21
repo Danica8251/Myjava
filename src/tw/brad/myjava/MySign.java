@@ -22,11 +22,6 @@ public class MySign extends JFrame {
 	public MySign() {
 		super("簽名App");
 		
-		// 1.視窗
-		setSize(800,480);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 		// 2.視窗版面配置
 		setLayout(new BorderLayout());
 		
@@ -46,8 +41,15 @@ public class MySign extends JFrame {
 		// 3-1
 		myDrawer = new MyDrawer();
 		add(myDrawer, BorderLayout.CENTER);
-
 		
+		
+		
+		
+		
+		// 1.視窗
+		setSize(800,480);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 
