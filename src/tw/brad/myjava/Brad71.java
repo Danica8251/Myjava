@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 /*
  * 拿頁面原始碼資料(文字資料) - Json資料
  * */
@@ -17,25 +20,36 @@ public class Brad71 {
 			HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
 			
 			conn.connect();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			BufferedReader reader = 
+				new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
 			
 			String line; StringBuffer sb = new StringBuffer();
-			while ((line = reader.readLine()) != null) {
+			while ( (line = reader.readLine()) != null) {
 				sb.append(line);
 			}
 			reader.close();
 			
 			System.out.println(sb.toString());
-			
+			parseJSON(sb.toString());
 			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 	
-	// 解析資料
+	// 解析資料，使用json，要先加入json.jar檔
 	static void parseJSON(String json) {
-		
+		try {
+			JSONArray root = new JSONArray(json);
+			for (int i=0; i<root.length(); i++) {
+				JSONObject row = root.getJSONObject(i);
+				String name = row.getString("Name");
+				System.out.println(name);
+			}
+			
+		}catch (Exception e) {
+			System.out.println(e);
+		}
 	}
-
 }
