@@ -16,12 +16,12 @@ public class Brad65 {
 	public static void main(String[] args) {
 		
 		try {
-			Socket socket = new Socket(InetAddress.getByName("10.0.102.72"),9487);
+			Socket socket = new Socket(InetAddress.getByName("10.0.102.45"),9487);
 			OutputStream out = socket.getOutputStream();
 			BufferedOutputStream bout = new BufferedOutputStream(out);
 			
 			
-			FileInputStream fin = new FileInputStream("dir1/002.jpg");
+			FileInputStream fin = new FileInputStream("dir1/ball0.jpg");
 			BufferedInputStream bin = new BufferedInputStream(fin);
 			
 			int len; byte[] buf = new byte[16*1024];
