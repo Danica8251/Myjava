@@ -20,13 +20,12 @@ public class JDBC01 {
 		// 2. SQL (create connection)
 		// ?sql server: jdbc:sqlserver://localhost;database=eeit53
 		try {
-			Connection conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/eeit53?user=root&password=root");
-			
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/eeit53?user=root&password=root");
+
 			// 3. SQL statement
 			Statement stmt = conn.createStatement();
 			stmt.execute("INSERT INTO cust (cname,tel,birthday) VALUES ('tony','111','1991-01-02')");
-			
+
 			conn.close();
 			System.out.println("OK2");
 		} catch (SQLException e) {

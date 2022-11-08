@@ -1,0 +1,75 @@
+
+/* 子查詢 */
+
+順序
+SELECT 
+FROM 
+JOIN
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+
+
+
+
+1.各客戶的訂單數量統計(CustomerID, count), 大於 20 筆, 排序
+
+         步驟								 SQL語句
+1-1 各客戶的訂單數量統計 					 SELECT CustomerID, count(*) AS nums FROM orders
+											 GROUP BY CustomerID
+1-2 大於 20 筆							  	 HAVING nums >= 20
+1-3 排序										 ORDER BY nums DESC
+
+
+
+2. Seafood 的產品有哪些?
+	SELECT `ProductName` FROM `products` WHERE `CategoryID` = 
+	(Select CategoryID FROM categories WHERE CategoryName = 'Seafood')
+
+3. Seafood 的產品供應商
+	select CompanyName, Phone from suppliers
+	where supplierid in
+	(
+		select supplierid from products 
+		where `CategoryID` = 
+		(
+        Select CategoryID FROM categories 
+        WHERE CategoryName = 'Seafood'
+    	)
+	)
+
+4. 查詢特定公司提供的商品
+	select productname, supplierid from products
+	where supplierid in (
+	select supplierid from suppliers
+	where companyname in (
+		'Exotic Liquids', 'Tokyo Traders'
+		)
+	)
+
+5. 供應商的公司名稱
+select productname, p.supplierid, s.companyname from products p
+join suppliers s on (s.supplierid = p.supplierid)
+where p.supplierid in (
+	select supplierid from suppliers
+	where companyname in (
+		'Exotic Liquids', 'Tokyo Traders'
+	)
+)
+
+6. 業務的銷售排行榜(營業額)，依據 訂單明細單價*數量
+   提示：orderdetial => product, unit, dty -> order orderid -> employee
+
+	select e.lastname, sum(od.unitprice * od.quantity) sum from orders o
+	join employees e on (o.employeeid = e.employeeid)
+	join orderdetails od on (o.orderid = od.orderid)
+	group by e.employeeid
+	order by sum desc
+
+
+
+====================================================================================
+
+

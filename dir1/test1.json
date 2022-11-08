@@ -1,0 +1,11 @@
+{
+	"orderid" : 10248,
+	"customerid" : "VINET",
+	"empolyeeid" : 5,
+	"detail" : {
+		"productid" : 123,
+		"price" : 111,
+		"qty" : 12
+	}
+}
+
