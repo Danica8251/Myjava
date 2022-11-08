@@ -11,8 +11,8 @@ public class JDBC07 {
 
 	public static void main(String[] args) {
 		
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Keyword =  ");
+		Scanner scanner = new Scanner(System.in); // 手動輸入
+		System.out.print("Keyword =  "); // 提示字
 		String key = scanner.next();
 		
 		Properties prop = new Properties();
