@@ -1,4 +1,4 @@
-package tw.jdbc.myclass;
+package tw.book.myclass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,15 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-//單表練習
-
-public class FoodDB {
-	private Connection conn;
-	private ResultSet rs;
+public class BookDB {
+	/* 宣告 */
+	private Connection conn; // 連接資料庫
+	private ResultSet rs; // 資料庫返回的資料通過ResultSet 介面獲取
 	private String[] fieldNames;
 
-	// 建構式，初始化時該做的事=>要連線目標資料庫
-	public FoodDB() throws SQLException {
+	/* 建構式，初始化時該做的事=>連接資料庫，並拋出SQL例外 */
+	public BookDB() throws SQLException {
 		Properties prop = new Properties();
 		prop.put("user", "root");
 		prop.put("password", "root");
@@ -25,16 +24,19 @@ public class FoodDB {
 
 	}
 
+	/* 宣告queryData 並拋出SQL例外 */
 	public void queryData(String sql) throws SQLException {
-		Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+		Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE); // 執行靜態SQL語句返回它生成結果
 		rs = stmt.executeQuery(sql);
 
-		ResultSetMetaData rsmd = rs.getMetaData();
+		ResultSetMetaData rsmd = rs.getMetaData(); // 得到結果集(rs)的結構，比如字段數、字段名等
 		int colCount = rsmd.getColumnCount();
 		fieldNames = new String[colCount];
 		for (int i = 0; i < colCount; i++) {
-			fieldNames[i] = rsmd.getColumnName(i + 1);
+			fieldNames[i] = rsmd.getCatalogName(i + 1);
 		}
+
 	}
 
 	public int getRows() {
@@ -42,6 +44,7 @@ public class FoodDB {
 			rs.last();
 			return rs.getRow();
 		} catch (Exception e) {
+			System.out.println(e);
 			return 0;
 		}
 	}
@@ -71,7 +74,7 @@ public class FoodDB {
 			rs.updateString(col, data);
 			rs.updateRow();
 		} catch (Exception e) {
-			System.out.printf("%d : %d : %s : %s\n", row, col, e.toString());
+			System.out.printf("%d : %d : %s\n", row, col, e.toString());
 		}
 	}
 
@@ -87,14 +90,11 @@ public class FoodDB {
 	public void addData() {
 		try {
 			rs.moveToInsertRow();
-			rs.updateString("name", "");
-			rs.updateString("tel", "");
-			rs.updateString("addr", "");
-			rs.updateString("city", "");
-			rs.updateString("town", "");
-			rs.updateString("picurl", "");
-			rs.updateDouble("lat", 0);
-			rs.updateDouble("lng", 0);
+			rs.updateString("title", "");
+			rs.updateString("author", "");
+			rs.updateString("publisher", "");
+			rs.updateString("date", "yyyy-mm-dd");
+			rs.updateInt("class", 0);
 			rs.insertRow();
 			System.out.println("insert");
 		} catch (Exception e) {

@@ -1,4 +1,4 @@
-package tw.jdbc.myjava;
+package tw.book.myjava;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -10,70 +10,71 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import tw.jdbc.myclass.MyFoodTable;
+import tw.book.myclass.MyBookTable;
 
-public class MyFoodDB extends JFrame {
-	private MyFoodTable foodTable;
-	private JButton del, add, test;
+//1. MyBookDB 繼承 JFrame
+public class MyBookDB extends JFrame {
+	// private 宣告類別
+	private MyBookTable bookTable;
+	private JButton del, add;
 
-	public MyFoodDB() {
-		super();
+	public MyBookDB() {
+		// 設定視窗標題
+		super("電腦資訊近期新書");
 
-		// 1-2 邊框布局
+		// 邊框布局
 		setLayout(new BorderLayout());
 
-		// 1-3 表格位置 1-4設計內容要到MyFoodTable去設計
+		// 1-3 表格位置 1-4設計內容要到MyBookTable去設計
 		try {
-			foodTable = new MyFoodTable();
+			bookTable = new MyBookTable();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e); // 印出例外
 		}
 
-		JScrollPane jsp = new JScrollPane(foodTable);
+		//
+		JScrollPane jsp = new JScrollPane(bookTable);
 		add(jsp, BorderLayout.CENTER);
 
+		//
 		JPanel top = new JPanel(new FlowLayout());
 		del = new JButton("Del");
 		add = new JButton("Add");
-		test = new JButton("Test");
 		top.add(del);
 		top.add(add);
-		top.add(test);
 
 		add(top, BorderLayout.NORTH);
 
-		// 1-1 視窗大小
+		// 設定視窗大小
 		setSize(800, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+		//
 		setListener();
+
 	}
 
+	//
 	private void setListener() {
 		del.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				foodTable.delRow();
-			}
-		});
-		add.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				foodTable.addRow();
+				bookTable.delRow();
 			}
 		});
 
-		test.addActionListener(new ActionListener() {
+		add.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				foodTable.newsql();
+				bookTable.addRow();
 			}
 		});
 	}
 
+	// 2.
 	public static void main(String[] args) {
-		new MyFoodDB();
+		new MyBookDB();
 	}
 
 }
